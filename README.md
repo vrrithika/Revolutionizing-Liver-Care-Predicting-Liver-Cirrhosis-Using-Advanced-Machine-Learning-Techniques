@@ -1,0 +1,2 @@
+# Revolutionizing-Liver-Care-Predicting-Liver-Cirrhosis-Using-Advanced-Machine-Learning-Techniques
+The project is focused on creating an advanced machine learning-based predictive model to identify the onset or progression of liver cirrhosis in patients.  By examining diverse patient data, including medical history, lab results,lifestyle factors, the model aims to predict the likelihood of liver cirrhosis. 

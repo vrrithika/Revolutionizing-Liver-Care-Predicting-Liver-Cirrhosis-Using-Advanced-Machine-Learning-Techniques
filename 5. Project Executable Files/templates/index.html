@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liver Cirrhosis Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="roboto">Revolutionizing Liver Care</h1>
+        <h3 class="montserrat">Our project uses advanced machine learning techniques to predict the presence of liver cirrhosis based on medical data. Our model aims to assist healthcare professionals in early detection, contributing to better patient care and outcomes.</h3>
+    </header>
+    <form action="/y_predict" method="post" id="prediction-form">
+        <h1 id="main-heading">Predict Liver Cirrhosis</h1>
+        <hr>
+        <div class="form-column">
+            <label for="Age">Age:</label>
+            <input type="text" name="Age" required>
+
+            <label for="Quantity_of_alcohol_consumption">Quantity of alcohol consumption (quarters/day):</label>
+            <input type="text" name="Quantity_of_alcohol_consumption" required>
+
+            <label for="Diabetes_Result">Diabetes Result:</label>
+            <select name="Diabetes_Result" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="Blood_pressure">Blood pressure (mmhg) (e.g., 138/90):</label>
+            <input type="text" name="Blood_pressure" required>
+
+            <label for="Hemoglobin">Hemoglobin (g/dl):</label>
+            <input type="text" name="Hemoglobin" required>
+
+            <label for="PCV">PCV (%):</label>
+            <input type="text" name="PCV" required>
+
+            <label for="Polymorphs">Polymorphs (%):</label>
+            <input type="text" name="Polymorphs" required>
+
+            <label for="USG_Abdomen">USG Abdomen (diffuse liver or not):</label>
+            <select name="USG_Abdomen" required>
+                <option value="">Select</option>
+                <option value="YES">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="form-column">
+            <label for="Lymphocytes">Lymphocytes (%):</label>
+            <input type="text" name="Lymphocytes" required>
+
+            <label for="Platelet_Count">Platelet Count (lakhs/mm):</label>
+            <input type="text" name="Platelet_Count" required>
+
+            <label for="Indirect">Indirect (mg/dl):</label>
+            <input type="text" name="Indirect" required>
+
+            <label for="Total_Protein">Total Protein (g/dl):</label>
+            <input type="text" name="Total_Protein" required>
+
+            <label for="Albumin">Albumin (g/dl):</label>
+            <input type="text" name="Albumin" required>
+
+            <label for="Globulin">Globulin (g/dl):</label>
+            <input type="text" name="Globulin" required>
+
+            <label for="AG_Ratio">A/G Ratio:</label>
+            <input type="text" name="AG_Ratio" required>
+
+            <label for="AL_Phosphatase">AL.Phosphatase (U/L):</label>
+            <input type="text" name="AL_Phosphatase" required>
+        </div>
+        <div class="submit-button">
+            <input type="submit" value="Predict">
+        </div>
+        <div id="prediction-result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    </form>
+    <script>
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            fetch("/y_predict", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("prediction-result").innerHTML = `<h2>${data.prediction_text}</h2>`;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("prediction-result").innerHTML = `<h2>Error during prediction</h2>`;
+            });
+        });
+    </script>
+</body>
+</html>

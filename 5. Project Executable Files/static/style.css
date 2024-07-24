@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    background-image: url("https://img.freepik.com/premium-vector/free-download-modern-science-images-background-images-hd-all-tech-labmedical-use_822642-648.jpg");
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 94%;
+    height: 88vh;
+    background-image: url("https://cdn.aarp.net/content/aarpe/en/home/health/healthy-living/info-2023/ways-to-protect-your-liver/_jcr_content/root/container_main/container_body_main/container_body1/container_body_cf/container_image/articlecontentfragment/cfimage.coreimg.50.932.jpeg/content/dam/aarp/health/healthy-living/2023/05/1140-doctorholdingliver.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 40px lightblue;
+    }
+    50% {
+        box-shadow: 0 0 20px lightblue;
+    }
+    100% {
+        box-shadow: 0 0 40px lightblue;
+    }
+}
+
+header h3 {
+    margin: 5%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+header h1 {
+    margin-bottom: -2%;
+    font-size: 2rem;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+    font-style: normal;
+}
+
+#main-heading {
+    text-align: center;
+    margin-top: 4%;
+}
+
+hr {
+    grid-column: span 2;
+    border: 1px solid black;
+    width: 75%;
+    color:black;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    width: 91%;
+    margin: 3%;
+    padding: 20px;
+    background-color: lightblue;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: -1%;
+}
+
+form label {
+    margin-left: 25%;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form select {
+    margin-left: 25%;
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form select {
+    width: 52.3%;
+}
+
+.submit-button {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.submit-button input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-button input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#prediction-result {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 20px;
+}
